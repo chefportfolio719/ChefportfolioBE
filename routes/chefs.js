@@ -52,7 +52,7 @@ router.post('/login', async (req, res) => {
   if (!validpass) return res.status(400).send('Invalid pass');
 
   //Create and assign a token
-  const token = jwt.sign({ _id: chef._id }, process.env.TOKEN_SECRET);
+  const token = jwt.sign({ _id: chef._id }, 'secret');
   res.header('auth-token', token).send(token);
 });
 
